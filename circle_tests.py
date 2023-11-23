@@ -3,6 +3,11 @@ import circle
 
 
 class CircleTestCase(unittest.TestCase):
+
+    
+    def test_negative_value_area(self):
+        with self.assertRaises(ValueError):
+            res = circle.area(-1)
     def test_zero_area(self):
         res = circle.area(0)
         self.assertEqual(res, 0)
