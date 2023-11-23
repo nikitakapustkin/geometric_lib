@@ -11,7 +11,7 @@ class TriangleTestCase(unittest.TestCase):
 
     def test_negative_side_perimeter(self):
         with self.assertRaises(ValueError):
-            res = triangle.perimeter(-1,2)
+            res = triangle.perimeter(-1,2,-3)
 
     def test_str_area(self):
         with self.assertRaises(TypeError):
