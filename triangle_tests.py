@@ -19,7 +19,7 @@ class TriangleTestCase(unittest.TestCase):
 
     def test_float_area(self):
         res = triangle.area(1.2,1.3)
-        self.assertAlmostEqual(res,0.78,delta = 0.1)
+        self.assertAlmostEqual(res,0.78,delta = 0.001)
 
     def test_zero_area(self):
         with self.assertRaises(ValueError):
@@ -36,7 +36,7 @@ class TriangleTestCase(unittest.TestCase):
 
     def test_float_perimeter(self):
         res = triangle.perimeter(1.2,1.1,1.3)
-        self.assertAlmostEqual(res,3.6,delta = 0.1)
+        self.assertAlmostEqual(res,3.6,delta = 0.01)
 
     def test_zero_perim(self):
         with self.assertRaises(ValueError):
