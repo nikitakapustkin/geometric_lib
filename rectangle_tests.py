@@ -18,7 +18,7 @@ class RectangleTestCase(unittest.TestCase):
 
     def test_float_perimeter(self):
         res = rectangle.perimeter(1.2,3.7)
-        self.assertAlmostEqual(res,9.8,delta=0.1)
+        self.assertAlmostEqual(res,9.8,delta=0.01)
 
     def test_zero_perimeter(self):
         with self.assertRaises(ValueError):
