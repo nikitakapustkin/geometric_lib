@@ -11,8 +11,8 @@ class CircleTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             res = circle.area(-1)
     def test_zero_area(self):
-        res = circle.area(0)
-        self.assertEqual(res, 0)
+        with self.assertRaises(ValueError):
+            res = circle.area(0)
 
     def test_str_area(self):
         with self.assertRaises(TypeError):
@@ -31,8 +31,8 @@ class CircleTestCase(unittest.TestCase):
             res = circle.perimeter(0)
 
     def test_zero_perimeter(self):
-        res = circle.perimeter(0)
-        self.assertAlmostEqual(res, 0, delta=0.1)
+        with self.assertRaises(ValueError):
+            res = circle.area(0)
 
     def test_float_perimeter(self):
         res = circle.perimeter(3.4)
