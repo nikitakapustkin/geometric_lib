@@ -37,7 +37,7 @@ class SquareTestCase(unittest.TestCase):
 
     def test_float_area(self):
         res = square.area(1.2)
-        self.assertAlmostEqual(res,1.44,delta=0.1)
+        self.assertAlmostEqual(res,1.44,delta=0.001)
 
     def test_int_area(self):
         res=square.area(32352)
