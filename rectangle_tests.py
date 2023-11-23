@@ -4,6 +4,14 @@ import rectangle
 
 class RectangleTestCase(unittest.TestCase):
 
+    def test_negative_side_perimeter(self):
+        with self.assertRaises(ValueError):
+            res = rectangle.perimeter(-1)
+
+    def test_negative_side_area(self):
+        with self.assertRaises(ValueError):
+            res = rectangle.area(-1)
+
     def test_str_perimeter(self):
         with self.assertRaises(TypeError):
             res = rectangle.perimeter(5,'5')
@@ -13,8 +21,8 @@ class RectangleTestCase(unittest.TestCase):
         self.assertAlmostEqual(res,9.8,delta=0.1)
 
     def test_zero_perimeter(self):
-        res = rectangle.perimeter(10, 0)
-        self.assertEqual(res, 20)
+        with self.assertRaises(ValueError):
+            res = rectangle.perimeter(0)
 
     def test_equal_sides_perimeter(self):
         res = rectangle.perimeter(10,10)
@@ -33,8 +41,8 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res,1.56)
 
     def test_zero_area(self):
-        res = rectangle.area(3,0)
-        self.assertEqual(res,0)
+        with self.assertRaises(ValueError):
+            res = rectangle.area(0)
 
     def test_equal_sides_area(self):
         res = rectangle.area(2,2)
