@@ -4,7 +4,9 @@ import circle
 
 class CircleTestCase(unittest.TestCase):
 
-    
+    def test_negative_value_perimeter(self):
+        with self.assertRaises(ValueError):
+            res = circle.perimeter(-1)
     def test_negative_value_area(self):
         with self.assertRaises(ValueError):
             res = circle.area(-1)
