@@ -22,7 +22,7 @@ class RectangleTestCase(unittest.TestCase):
 
     def test_zero_perimeter(self):
         with self.assertRaises(ValueError):
-            res = rectangle.perimeter(0)
+            res = rectangle.perimeter(0,2)
 
     def test_equal_sides_perimeter(self):
         res = rectangle.perimeter(10,10)
@@ -42,7 +42,7 @@ class RectangleTestCase(unittest.TestCase):
 
     def test_zero_area(self):
         with self.assertRaises(ValueError):
-            res = rectangle.area(0)
+            res = rectangle.area(0,2)
 
     def test_equal_sides_area(self):
         res = rectangle.area(2,2)
