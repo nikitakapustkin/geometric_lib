@@ -36,8 +36,8 @@ class CircleTestCase(unittest.TestCase):
 
     def test_float_perimeter(self):
         res = circle.perimeter(3.4)
-        self.assertAlmostEqual(res, 21.362830044410593, delta=0.001)
+        self.assertAlmostEqual(res, 21.362830044410593, delta=0.000000000000001)
 
     def test_int_perimeter(self):
         res = circle.perimeter(325235)
-        self.assertAlmostEqual(res, 2043511.7733805527, delta=0.001)
+        self.assertAlmostEqual(res, 2043511.7733805527, delta=0.0000000001)
