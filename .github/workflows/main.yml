@@ -4,11 +4,11 @@ name: CI
 on:
   push:
     branches:
-      - "cicd_408739"
+      - "tests_408739"
 
   pull_request:
     branches:
-      - "cicd_408739"
+      - "tests_408739"
 
 jobs:
   build_linux:
