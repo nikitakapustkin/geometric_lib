@@ -1,0 +1,43 @@
+
+name: CI
+
+on:
+  push:
+    branches:
+      - "cicd_408739"
+
+  pull_request:
+    branches:
+      - "cicd_408739"
+  workflow_dispatch:
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+          architecture: x64
+      - name: CICD tests
+        run: |
+          python -m unittest "circle_tests.py"
+          python -m unittest "triangle_tests.py"
+          python -m unittest "rectangle_tests.py"
+          python -m unittest "square_tests.py"
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+          architecture: x64
+      - name: CICD tests
+        run: |
+          python -m unittest "circle_tests.py"
+          python -m unittest "triangle_tests.py"
+          python -m unittest "rectangle_tests.py"
+          python -m unittest "square_tests.py"
