@@ -1,31 +1,42 @@
-name: CI
+
+name: CI/CD
 on:
   push:
-    branches: [ "tests_408739" ]
-
-  workflow_dispatch:
-
+    branches:
+      - main
+      - test_408739
+      - documentation_408739
+      - cicd_408739
+  pull_request:
+    branches:
+      - main
+      - test_408739
+      - documentation_408739
+      - cicd_408739
+permissions:
+  contents: read
 jobs:
-  tests_ubuntu:
+  test-on-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python 3.11.6
-        uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.11.6
-
+          python-version: "3.10"
+          architecture: x64
       - name: Run tests
-        run: python -m unittest circle_tests.py rectangle_tests.py square_tests.py triangle_tests.py
-  tests_windows:
+        run: python -m unittest
+  test-on-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python 3.11.6
-        uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.11.6
-
+          python-version: "3.10"
+          architecture: x64
       - name: Run tests
-        run: python -m unittest circle_tests.py rectangle_tests.py square_tests.py triangle_tests.py
+        run: python -m unittest
