@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - "tests_408739"
-
+  workflow_dispatch:
 jobs:
   build_linux:
     runs-on: ubuntu-latest
